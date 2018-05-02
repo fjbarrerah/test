@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <h2>{{ 'satisfaction_info' | translate }}</h2>
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="6">{{ 'survey' | translate }}</th>
+
+      <tr class="table-danger">
+        <th>
+          {{ 'id' | translate }}
+        </th>
+        <th>
+          {{ 'ticket_id' | translate }}
+        </th>
+        <th>
+          {{ 'score' | translate }}
+        </th>
+        <th>
+          {{ 'created' | translate }}
+        </th>
+
+      </tr>
+      <tr *ngFor="let survey of satisfacionArray">
+        <td>
+          {{survey.created}}
+        </td>
+        <td>
+          {{survey.ticket_id}}
+        </td>
+        <td>
+          {{survey.score}}
+        </td>
+        <td>
+          {{survey.created}}
+        </td>
+      </tr>
+    </table>
+</div>

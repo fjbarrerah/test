@@ -1,0 +1,59 @@
+<div class="container">
+
+  <form class="form-control" #f="ngForm">
+    {{ 'select_org' | translate }}
+
+    <select class="form-control" [(ngModel)]="id" name="select">
+        <option *ngFor="let option of options" [value]="option.id" name="id" ngDefaultControl>
+          {{ option.name }}
+        </option>
+
+      </select>
+      <button class="btn btn-lg" (click)="fillter(id)">{{ 'search' | translate }}</button>
+      <button class="btn btn-lg" (click)="csvExport()">{{ 'export' | translate }}</button>
+  </form>
+
+  <table class="table" *ngIf="fillterDone">
+      <tr class="table-danger">
+          <th (click)="sortByName()">
+            {{ 'organization' | translate }}
+          </th>
+          <th (click)="sortByTicket()">
+            {{ 'ticket_id' | translate }}
+          </th>
+          <th (click)="sortByCreate()">
+            {{ 'created' | translate }}
+          </th>
+          <th (click)="sortByStatus()">
+            {{ 'status' | translate }}
+          </th>
+          <th (click)="sortByLastUp()">
+            {{ 'last_update' | translate }}
+          </th>
+          <th>
+            {{ 'priority' | translate }}
+          </th>
+        </tr>
+
+        <tr *ngFor="let tickets of fillterDone" class="mb-1">
+          <td>
+            {{tickets.Orgname}}
+          </td>
+          <td>
+            {{tickets.ticketId}}
+          </td>
+          <td>
+            {{tickets.creacion | date: 'medium'}}
+          </td>
+          <td>
+            {{tickets.status}}
+          </td>
+          <td>
+            {{tickets.lastupdate | date: 'medium'}}
+          </td>
+          <td>
+            {{tickets.prioridad}}
+          </td>
+        </tr>
+  </table>
+</div>

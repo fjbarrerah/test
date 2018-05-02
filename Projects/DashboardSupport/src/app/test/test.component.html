@@ -1,0 +1,39 @@
+<div class="container">
+<br>
+<div class="card text-white bg-danger mb-3" style="width: 60rem;" *ngIf="!isauth">
+  <div class="card-header">{{ 'login' | translate }}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{ 'login' | translate }}</h4>
+    <p class="card-text">{{ 'register' | translate }}</p>
+    <div class="img">
+      <img class="imagen" src="/assets/logoEmergya.jpg">
+    </div>
+    <button class="btn btn-lg btn-white" (click)="login()">
+      <i class="fab fa-google"></i> {{ 'account' | translate }}</button>
+  </div>
+</div>
+<div class="card text-white bg-danger mb-3" style="width: 60rem;" *ngIf="isauth">
+  <div class="card-header">{{ 'welcome' | translate }}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{ 'welcome' | translate }}</h4>
+    <p class="card-text">{{ 'welcome_message' | translate }}</p>
+    <div class="img">
+      <img class="imagen" src="/assets/logoEmergya.jpg">
+    </div>
+    <button class="btn btn-lg btn-white" (click)="logout()">
+      <i class="fab fa-google"></i> {{ 'logout' | translate }}</button>
+  </div>
+</div>
+
+
+<div class="card text-white bg-danger mb-3" style="width: 60rem;" *ngIf="isauth">
+    <div class="card-header">{{ 'ans_time' | translate }}</div>
+    <div class="card-body">
+      <h4 class="card-title"></h4>
+      <p class="card-text">{{ 'ans_message' | translate }}</p>
+
+      <button class="btn btn-lg btn-white" *ngIf="level.user" routerLink="/organization">{{ 'organization' | translate }}</button>
+      <button class="btn btn-lg btn-white" *ngIf="level.admin" routerLink="/edit">{{ 'ans_edit' | translate }} </button>
+    </div>
+  </div>
+</div>

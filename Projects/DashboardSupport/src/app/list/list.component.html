@@ -1,0 +1,35 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">{{ 'home' | translate }} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active" *ngIf="log.auth">
+          <a class="nav-link" routerLink="/ticketsmonth" *ngIf="simu.level.admin || simu.level.agent">{{ 'menu_month' | translate }}</a>
+        </li>
+        <li class="nav-item active" *ngIf="log.auth">
+          <a class="nav-link" routerLink="/ticketsyear" *ngIf="simu.level.admin || simu.level.agent">{{ 'menu_total' | translate }}</a>
+        </li>
+        <li class="nav-item active" *ngIf="log.auth">
+          <a class="nav-link" routerLink="/anspage" *ngIf="simu.level.admin">{{ 'menu_ans' | translate }}</a>
+        </li>
+        <li class="nav-item active" *ngIf="log.auth">
+          <a class="nav-link" routerLink="/orgtick">{{ 'organization' | translate }}</a>
+        </li>
+        <li class="nav-item active" *ngIf="log.auth">
+          <a class="nav-link" routerLink="/sactisfaccion" *ngIf="simu.level.admin">{{ 'menu_satisfaction' | translate }}</a>
+        </li>
+      </ul>
+      <form  #f="ngForm">
+      <select class="selectpicker" [(ngModel)]="opcionSeleccionado" name="id" (change)="language($event)">
+        <option value="0">Lang</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+    </form>
+    </div>
+  </nav>

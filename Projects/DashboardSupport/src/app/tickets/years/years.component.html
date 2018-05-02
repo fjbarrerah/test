@@ -1,0 +1,61 @@
+<div class="container">
+  <br>
+  <h2>
+    {{ 'entry_channel' | translate }}
+  </h2>
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="5" class="table-danger">{{ 'total_support' | translate }}</th>
+
+    </tr>
+    <tr class="table-danger">
+      <th>
+        {{ 'month' | translate }}
+      </th>
+      <th>
+        {{ 'total' | translate }}
+      </th>
+      <th>
+        {{ 'web_email' | translate }}
+      </th>
+      <th>
+        {{ 'phone' | translate }}
+      </th>
+      <th>
+
+      </th>
+    </tr>
+    <tr *ngFor="let key of (data | keys)" class="mb-1">
+     <td>
+        {{data[key].mes}}
+      </td>
+     <td>
+        {{data[key].total}}
+      </td>
+     <td>
+        {{data[key].web}}
+      </td>
+     <td>
+        {{data[key].tel}}
+      </td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let ticks of ticketsTotal" class="table-danger">
+      <th>
+        {{ 'total' | translate }}
+      </th>
+      <th>
+        {{ticks.total}}
+      </th>
+      <th>
+        {{ticks.web}}
+      </th>
+      <th>
+        {{ticks.tel}}
+      </th>
+      <th>
+        <button class="btn btn-lg btn-white" routerLink="/yeartotal">{{ 'filter' | translate }} </button>
+      </th>
+    </tr>
+  </table>
+</div>

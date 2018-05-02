@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="formcontrol">
+    <form class="form-control" #f="ngForm">
+      <h2> {{ 'filter_option' | translate }}</h2>
+      <select class="form-control" [(ngModel)]="type" name="type" (ngModelChange)="typeOption(type)">
+          <option value="organizacion">{{ 'organization' | translate }}</option>
+          <option value="fecha">{{ 'date' | translate }}</option>
+          <option value="estado">{{ 'status' | translate }}</option>
+      </select>
+
+        <button (click)="advancedFilter()" class="btn btn-lg">Avanzado</button>
+      <div *ngIf="organivisible">
+        {{ 'org_name' | translate }}
+        <select class="form-control" [(ngModel)]="name" name="select">
+          <option selected>{{ 'option_select' | translate }}</option>
+          <option *ngFor="let option of options" [value]="option.name" name="id" ngDefaultControl >
+            {{ option.name }}
+          </option>
+        </select>
+        <button (click)="filterorg(name)" *ngIf="botonfilter" class="btn btn-lg">{{ 'filter' | translate }}</button>
+      </div>
+
+
+      <div *ngIf="fechavisible" class="form-control">
+        {{ 'init_date' | translate }}
+        <input type="date" class="fechainicio" #ini (change)="dateChange(ini.value)"> {{ 'fin_date' | translate }}
+        <input type="date" class="fechafin" #fin (change)="dateChange2(ini.value)"><br>
+        <button (click)="filterdate(ini.value, fin.value)" *ngIf="botonfilter" class="btn btn-lg">{{ 'filter' | translate }}</button>
+      </div>
+
+      <div *ngIf="estadovisible">
+        {{ 'status' | translate }}
+          <select class="form-control" [(ngModel)]="id" name="select">
+            <option value="open">{{ 'open' | translate }}</option>
+            <option value="pending">{{ 'pending' | translate }}</option>
+            <option value="solved">{{ 'solved' | translate }}</option>
+            <option value="closed">{{ 'closed' | translate }}</option>
+          </select>
+          <button (click)="filterdata(id)" *ngIf="botonfilter" class="btn btn-lg">{{ 'filter' | translate }}</button>
+        </div>
+
+        <button (click)="bigFilter(name, id)" *ngIf="!botonfilter" class="btn btn-lg">{{ 'filter' | translate }}</button>
+
+    </form>
+
+  </div>
+  <br>
+  <div>
+
+      <table class="table table-hover" >
+          <tr class="table-danger">
+            <td colspan="5" class="titulo">
+               {{ 'filter_message' | translate }}</td>
+          </tr>
+          <tr class="table-danger">
+            <th>
+            {{ 'days' | translate }}
+            </th>
+            <th>
+            {{ 'ticket_id' | translate }}
+            </th>
+            <th>
+            {{ 'status' | translate }}
+            </th>
+            <th>
+            {{ 'organization' | translate }}
+            </th>
+            <th>
+              {{ 'entry' | translate }}
+            </th>
+
+          </tr>
+          <tr *ngFor="let tick of showTickets" class="mb-1">
+            <td >
+              {{tick.creado}}
+            </td>
+            <td >
+              {{tick.ticket_number}}
+            </td>
+            <td >
+              {{tick.status}}
+            </td>
+            <td>
+              {{tick.organization}}
+            </td>
+            <td >
+              {{tick.entry}}
+            </td>
+          </tr>
+        </table>
+        <br>
+      <button class="btn btn-lg" (click)="exportCsv()">{{ 'export' | translate }}</button>
+  </div>
+</div>

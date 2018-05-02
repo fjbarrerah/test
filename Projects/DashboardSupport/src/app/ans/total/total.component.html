@@ -1,0 +1,99 @@
+<div class="container">
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="5">
+        ANS Cumplidos
+      </th>
+    </tr>
+    <tr class="table-danger">
+      <th>
+        Mes
+      </th>
+
+      <th>
+        Total
+      </th>
+
+      <th>
+        Primer Contacto
+      </th>
+
+      <th>
+        Primer Diagnostico
+      </th>
+
+      <th>
+        Tiempo Resolucion
+      </th>
+    </tr>
+    <tr *ngFor="let key of (data | keys)" class="mb-1">
+      <td >
+          {{data[key].mes}}
+      </td>
+      <td >
+          {{data[key].total}}
+      </td>
+      <td >
+          {{data[key].firstcontact}}
+      </td>
+      <td >
+          {{data[key].firstcontact}}
+      </td>
+      <td >
+        {{data[key].ressoltime | dayhourformat}}
+      </td>
+
+    </tr>
+  </table>
+
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="5">
+        ANS Incumplidos
+      </th>
+    </tr>
+    <tr class="table-danger">
+      <th>
+        Mes
+      </th>
+
+      <th>
+        Total
+      </th>
+
+      <th>
+        Primer Contacto
+      </th>
+
+      <th>
+        Primer Diagnostico
+      </th>
+
+      <th>
+        Tiempo Resolucion
+      </th>
+    </tr>
+    <tr *ngFor="let fail of failTickets" class="mb-1">
+      <td>
+        {{fail.mes}}
+      </td>
+
+      <td>
+        {{fail.total}}
+      </td>
+
+      <td>
+        {{fail.firstcontact}}
+      </td>
+
+      <td>
+        {{fail.firstcontact}}
+      </td>
+
+      <td>
+        {{fail.ressoltime | dayhourformat}}
+      </td>
+    </tr>
+  </table>
+
+</div>

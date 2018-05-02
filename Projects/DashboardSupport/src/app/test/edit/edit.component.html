@@ -1,0 +1,68 @@
+<div class="container">
+  <form class="form-group" #f="ngForm" (ngSubmit)="capture(f.value)" >
+    <table class="table">
+      <tr>
+
+        <th>
+          {{ 'name' | translate }}
+        </th>
+        <th>
+          {{ 'sla_type' | translate }}
+        </th>
+        <th>
+          {{ 'time' | translate }}
+        </th>
+        <th>
+          {{ 'metter' | translate }}
+        </th>
+        <th>
+
+        </th>
+      </tr>
+      <tr>
+
+        <td>
+
+          <select class="form-control" [(ngModel)]="id" name="select">
+            <option *ngFor="let option of options" [value]="option.id" name="id" ngDefaultControl>
+              {{ option.name }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" id="exampleSelect1" [(ngModel)]="type" name="slatype">
+            <option value="firstcontact">{{ 'first_contact' | translate }}</option>
+            <option value="firstdiag">{{ 'first_diagnosis' | translate }}</option>
+            <option value="soltime">{{ 'resolution_time' | translate }}</option>
+          </select>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="time" name="time">
+        </td>
+        <td>
+          <select class="form-control" id="exampleSelect1" [(ngModel)]="metter" name="timeMetter">
+            <option value="day">{{ 'days' | translate }}</option>
+            <option value="hour">{{ 'hour' | translate }}</option>
+            <option value="minute">{{ 'minutes' | translate }}</option>
+          </select>
+        </td>
+        <td>
+          <input type="submit" value="Actualizar" class="btn btn-danger btn-lg btn-block">
+        </td>
+      </tr>
+
+    </table>
+
+  </form>
+
+  <div class="alert alert-dismissible alert-success" *ngIf="visible">
+    <button type="button" class="close" data-dismiss="alert" (click)="setVisible()">&times;</button>
+    <strong>{{ 'great' | translate }}</strong> {{ 'update_success' | translate }}
+  </div>
+
+  <div class="alert alert-dismissible alert-danger" *ngIf="errorVisible">
+    <button type="button" class="close" data-dismiss="alert" (click)="setErrorVisible()">&times;</button>
+    <strong>{{ 'disaster' | translate }}</strong>{{ 'disaster_error' | translate }}
+  </div>
+
+</div>

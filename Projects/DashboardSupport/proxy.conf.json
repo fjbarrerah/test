@@ -1,0 +1,9 @@
+{
+  "/api/v2/*": {
+    "target": "https://emergya7735.zendesk.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "changeOrigin": true
+}

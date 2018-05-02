@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<br><br><br>
+<div class="container">
+
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <td colspan="6" class="titulo">
+        <i class="material-icons" style="font-size:36px">call</i> {{ 'callinfo_message' | translate }}</td>
+    </tr>
+    <tr class="table-danger">
+      <th>
+      {{ 'month' | translate }}
+      </th>
+      <th>
+      {{ 'recieved' | translate }}
+      </th>
+      <th>
+      {{ 'acepted' | translate }}
+      </th>
+      <th>
+      {{ 'lost' | translate }}
+      </th>
+      <th>
+        {{ 'call_time' | translate }}
+      </th>
+      <th>
+        {{ 'graphics' | translate }}
+       </th>
+
+    </tr>
+    <tr *ngFor="let tick of totalTickets" class="mb-1">
+      <td >
+        {{tick.mes}}
+      </td>
+      <td >
+        {{tick.recieved}}
+      </td>
+      <td >
+        {{tick.acepted}}
+      </td>
+      <td >
+        {{tick.lost}}
+      </td>
+      <td >
+        {{tick.calltime | hourformat }}
+      </td>
+      <td >
+       <button routerLink="/chartcall" (click)="sendcall()" class="btn btn-danger btn-lg btn-block">{{ 'graphics' | translate }}</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

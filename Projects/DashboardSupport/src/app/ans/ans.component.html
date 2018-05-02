@@ -1,0 +1,68 @@
+<div class="container"><br>
+  <h2>{{ 'ans_info' | translate }}</h2>
+    <table *ngIf="data" class="table table-hover">
+      <tr class="table-danger">
+        <th colspan="6">{{ 'sla_tickets' | translate }}</th>
+      <tr class="table-danger">
+        <th>
+          {{ 'month' | translate }}
+        </th>
+        <th>
+          {{ 'total' | translate }}
+        </th>
+        <th>
+          {{ 'first_contact' | translate }}
+        </th>
+        <th>
+          {{ 'first_diagnosis' | translate }}
+        </th>
+        <th>
+          {{ 'time_average' | translate }}
+        </th>
+        <th>
+          {{ 'statistic' | translate }}
+        </th>
+      </tr>
+      <tr *ngFor="let key of (data | keys)" class="mb-1">
+          <td >
+              {{data[key].mes}}
+          </td>
+          <td >
+              {{data[key].total}}
+          </td>
+          <td >
+              {{data[key].firstcontact}}
+          </td>
+          <td >
+              {{data[key].firstcontact}}
+          </td>
+          <td >
+            {{data[key].ressoltime | dayhourformat}}
+          </td>
+          <td >
+            <button class="btn btn-danger btn-lg btn-block" routerLink="/ansStadistic" (click)="ansKey(data[key].mes)">{{ 'statistic' | translate }}</button>
+          </td>
+        </tr>
+        <tr *ngFor="let sum of ticksum" class="mb-1">
+          <th >
+            {{ 'total' | translate }}
+          </th>
+          <th >
+              {{sum.total}}
+          </th>
+          <th >
+              {{sum.firstcontact}}
+          </th>
+          <th >
+              {{sum.firstcontact}}
+          </th>
+          <th >
+            {{sum.ressoltime | dayhourformat}}
+          </th>
+          <th >
+            <button class="btn btn-danger btn-lg btn-block" routerLink="/ansTotal">{{ 'statistic' | translate }}</button>
+          </th>
+        </tr>
+    </table>
+
+  </div>

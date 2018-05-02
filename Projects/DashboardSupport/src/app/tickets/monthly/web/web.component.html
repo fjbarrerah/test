@@ -1,0 +1,50 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<br><br><br>
+<div class="container">
+
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <td colspan="6" class="titulo">
+        <i class="fas fa-envelope-open"></i> {{ 'callinfo_message' | translate }}</td>
+
+
+
+    </tr>
+    <tr class="table-danger">
+      <th>
+      {{ 'month' | translate }}
+      </th>
+      <th>
+      {{ 'recieved' | translate }}
+      </th>
+      <th>
+      {{ 'web_email' | translate }}
+      </th>
+      <th>
+        {{ 'details' | translate }}
+      </th>
+      <th>
+        {{ 'graphics' | translate }}
+       </th>
+
+    </tr>
+    <tr *ngFor="let tick of totalTicketsWeb" class="mb-1">
+      <td >
+        {{tick.mes}}
+      </td>
+      <td >
+        {{tick.total}}
+      </td>
+      <td >
+        {{tick.web_email}}
+      </td>
+      <td >
+        <button routerLink="/webdetails" class="btn btn-danger btn-lg btn-block">{{ 'details' | translate }}</button>
+      </td>
+      <td >
+       <button routerLink="/chartcall" (click)="sendcall()" class="btn btn-danger btn-lg btn-block">{{ 'graphics' | translate }}</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

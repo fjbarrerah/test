@@ -1,0 +1,119 @@
+<div class="container">
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="7">
+        {{ 'ans_succeed' | translate }}
+      </th>
+    </tr>
+    <tr class="table-danger">
+      <th>
+       {{ 'month' | translate }}
+      </th>
+
+      <th>
+        {{ 'total' | translate }}
+      </th>
+
+      <th>
+        {{ 'first_contact' | translate }}
+      </th>
+
+      <th>
+        {{ 'first_diagnosis' | translate }}
+      </th>
+      <th>
+        {{ 'solved_time' | translate }}
+      </th>
+      <th>
+        {{ 'time_average' | translate }}
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let ans of ansFulfilled">
+      <td>
+        {{ans.month}}
+      </td>
+
+      <td>
+        {{ans.total}}
+      </td>
+      <td>
+        {{ans.firstcontact}}
+      </td>
+
+      <td>
+        {{ans.firstcontact}}
+      </td>
+      <td>
+        {{ans.restime}}
+      </td>
+      <td>
+        {{ans.average | hourformat}}
+      </td>
+      <td>
+        <button routerLink="/ansdetail">{{ 'detail' | translate }}</button>
+      </td>
+
+    </tr>
+  </table>
+
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th colspan="7">
+        {{ 'ans_unsuccessfully' | translate }}
+      </th>
+    </tr>
+    <tr class="table-danger">
+      <th>
+       {{ 'month' | translate }}
+      </th>
+
+      <th>
+        {{ 'total' | translate }}
+      </th>
+
+      <th>
+        {{ 'first_contact' | translate }}
+      </th>
+      <th>
+        {{ 'first_diagnosis' | translate }}
+      </th>
+      <th>
+        {{ 'solved_time' | translate }}
+      </th>
+      <th>
+        {{ 'time_average' | translate }}
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let ansUns of ansUnfulfilled">
+      <td>
+        {{ansUns.month}}
+      </td>
+
+      <td>
+        {{ansUns.total}}
+      </td>
+
+      <td>
+        {{ansUns.firstcontact}}
+      </td>
+
+      <td>
+        {{ansUns.firstcontact}}
+      </td>
+      <td>
+        {{ansUns.restime}}
+      </td>
+
+      <td>
+        {{ansUns.average | hourformat}}
+      </td>
+      <td>
+        <button routerLink="/ansdetail2">{{ 'detail' | translate }}</button>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+
+</div>

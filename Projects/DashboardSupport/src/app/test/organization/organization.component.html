@@ -1,0 +1,33 @@
+<br>
+<h2>{{ 'response_time' | translate }}</h2>
+<table class="table table-hover">
+  <tr class="table-danger">
+    <th>
+      {{ 'organization' | translate }}
+    </th>
+    <th>
+      {{ 'first_contact' | translate }}
+    </th>
+    <th>
+      {{ 'first_diagnosis' | translate }}
+    </th>
+    <th>
+      {{ 'resolution_time' | translate }}
+    </th>
+  </tr>
+  <tr *ngFor="let answer of answerTime">
+    <td>
+      {{answer.name}}
+    </td>
+    <td>
+      {{answer.time*60 | dayhourformat}}
+    </td>
+    <td>
+      {{answer.firstdiag*60 | dayhourformat}}
+    </td>
+    <td>
+      {{answer.resoltime*60 | dayhourformat}}
+    </td>
+
+  </tr>
+</table>

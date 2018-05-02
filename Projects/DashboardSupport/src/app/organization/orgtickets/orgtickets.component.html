@@ -1,0 +1,94 @@
+<div class="container" *ngIf="noclient">
+  <table class="table table-hover">
+    <button class="btn btn-lg" (click)="exportCsv()">{{ 'export' | translate }}</button> <button class="btn btn-lg" routerLink="/orgid">{{ 'advanced_search' | translate }}</button>
+    <tr class="table-danger">
+      <th (click)="sortByName()">
+        {{ 'organization' | translate }}
+      </th>
+      <th (click)="sortByTicket()">
+        {{ 'ticket_id' | translate }}
+      </th>
+      <th (click)="sortByCreate()">
+        {{ 'created' | translate }}
+      </th>
+      <th (click)="sortByStatus()">
+        {{ 'status' | translate }}
+      </th>
+      <th (click)="sortByLastUp()">
+        {{ 'last_update' | translate }}
+      </th>
+      <th>
+        {{ 'priority' | translate }}
+      </th>
+    </tr>
+
+    <tr *ngFor="let tickets of ticketOrg" class="mb-1">
+      <td>
+        {{tickets.Orgname}}
+      </td>
+      <td>
+        {{tickets.ticketId}}
+      </td>
+      <td>
+        {{tickets.creacion | date: 'medium'}}
+      </td>
+      <td>
+        {{tickets.status}}
+      </td>
+      <td>
+        {{tickets.lastupdate | date: 'medium'}}
+      </td>
+      <td>
+        {{tickets.prioridad}}
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="client">
+
+  <table class="table table-hover">
+    <tr class="table-danger">
+      <th (click)="sortByName()">
+        {{ 'organization' | translate }}
+      </th>
+      <th (click)="sortByTicket()">
+        {{ 'ticket_id' | translate }}
+      </th>
+      <th (click)="sortByCreate()">
+        {{ 'created' | translate }}
+      </th>
+      <th (click)="sortByStatus()">
+        {{ 'status' | translate }}
+      </th>
+      <th (click)="sortByLastUp()">
+        {{ 'last_update' | translate }}
+      </th>
+      <th>
+        {{ 'priority' | translate }}
+      </th>
+    </tr>
+
+    <tr *ngFor="let userOr of userOrg" class="mb-1">
+      <td>
+        {{userOr.Orgname}}
+      </td>
+      <td>
+        {{userOr.ticketId}}
+      </td>
+      <td>
+        {{userOr.creacion | date: 'medium'}}
+      </td>
+      <td>
+        {{userOr.status}}
+      </td>
+      <td>
+        {{userOr.lastupdate | date: 'medium'}}
+      </td>
+      <td>
+        {{userOr.prioridad}}
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+.img{
+ float: right;
+ margin-top: -80px;
+
+}
+.imagen{
+  width:200px;
+  height:200px;
+  border-radius: 16px;
+
+}
+.container{
+  margin-top:15px;
+
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,99 @@
+<div class="container"><br>
+    <h2>{{ 'total_support' | translate }}</h2>
+  <table class="table table-hover">
+
+    <tr class="table-danger">
+      <th>
+        {{ 'month' | translate }}
+      </th>
+      <th>
+        {{ 'new' | translate }}
+      </th>
+      <th>
+        {{ 'solved' | translate }}
+      </th>
+      <th>
+        {{ 'pending' | translate }}
+      </th>
+      <th>
+        {{ 'reopen' | translate }}
+      </th>
+      <th>
+        {{ 'graphics' | translate }}
+      </th>
+      <th>
+        {{ 'call_statistics' | translate }}
+      </th>
+      <th>
+        {{ 'web_email' | translate }}
+      </th>
+      <th>
+        {{ 'filter' | translate }}
+      </th>
+    </tr>
+    <tr *ngFor="let tick of ticketsTotal" class="mb-1">
+      <td>
+        {{tick.mes}}<input value="{{tick.mes}}" hidden #month>
+      </td>
+      <td>
+        {{tick.nuevos}}
+      </td>
+      <td>
+        {{tick.status}}
+      </td>
+      <td>
+        {{tick.pending}}
+      </td>
+      <td>
+        {{tick.open}}
+      </td>
+      <td>
+        <button routerLink="/stadistic" (click)="graficbuttom(month.value)" class="btn btn-danger btn-lg btn-block">{{ 'graphics' | translate }}</button>
+      </td>
+      <td>
+        <button routerLink="/ticketsphone" (click)="phonebuttom(month.value)" class="btn btn-danger btn-lg btn-block">{{ 'phone' | translate }}</button>
+      </td>
+      <td>
+        <button routerLink="/ticketsweb" (click)="webbuttom(month.value)" class="btn btn-danger btn-lg btn-block">{{ 'web_email' | translate }}</button>
+      </td>
+      <td>
+        <button routerLink="/ticketsfilter" (click)="filterbuttom(month.value)" class="btn btn-danger btn-lg btn-block">{{ 'filter' | translate }}</button>
+      </td>
+
+    </tr>
+
+   <!-- suma los totales -->
+   <tr *ngFor="let ticksumall of ticksum" class="table-danger">
+    <th>
+      {{ 'total' | translate }}
+    </th>
+    <th>
+      {{ticksumall.nuevos}}
+    </th>
+    <th>
+      {{ticksumall.status}}
+    </th>
+    <th>
+      {{ticksumall.pending}}
+    </th>
+    <th>
+      {{ticksumall.reabiertos}}
+    </th>
+    <th>
+
+    </th>
+
+    <th>
+
+    </th>
+    <th>
+
+    </th>
+     <th>
+
+    </th>
+  </tr>
+
+  </table>
+
+</div>
